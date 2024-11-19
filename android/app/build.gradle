@@ -1,0 +1,42 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // O plugin Flutter deve ser aplicado após os plugins do Android e Kotlin.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.amplify_trips_planner"
+    compileSdk = flutter.compileSdkVersion // Atualizado para atender aos requisitos dos plugins.
+
+    ndkVersion = flutter.ndkVersion // Verifique se esta linha é realmente necessária.
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId "com.example.amplify_trips_planner"
+        minSdkVersion 21 // Compatível com a maioria dos dispositivos.
+        targetSdkVersion 34 // Atualizado para compatibilidade com SDK mais recente.
+        versionCode 1 // Número da versão do app.
+        versionName "1.0.0" // Nome da versão do app.
+    }
+
+    buildTypes {
+        release {
+            // TODO: Substitua pelo seu próprio signing config para builds de release.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
